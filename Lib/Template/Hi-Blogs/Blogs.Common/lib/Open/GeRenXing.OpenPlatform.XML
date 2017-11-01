@@ -1,0 +1,376 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GeRenXing.OpenPlatform</name>
+    </assembly>
+    <members>
+        <member name="T:GeRenXing.OpenPlatform.AuthOption">
+            <summary>
+            OAuth通用参数类
+            Author: 美丽的地球
+            Email: sanxia330@qq.com
+            QQ: 1851690435
+            </summary>
+        </member>
+        <member name="T:GeRenXing.OpenPlatform.AuthToken">
+            <summary>
+            OAuth Token类
+            Author: 美丽的地球
+            Email: sanxia330@qq.com
+            QQ: 1851690435
+            </summary>
+        </member>
+        <member name="T:GeRenXing.OpenPlatform.RequestOption">
+            <summary>
+            请求参数类
+            Author: 美丽的地球
+            Email: sanxia330@qq.com
+            QQ: 1851690435
+            </summary>
+        </member>
+        <member name="T:GeRenXing.OpenPlatform.UserProfile">
+            <summary>
+            OAuth 用户信息类
+            Author: 美丽的地球
+            Email: sanxia330@qq.com
+            QQ: 1851690435
+            </summary>
+        </member>
+        <member name="T:GeRenXing.Utils.HttpWebClient">
+            <summary>
+            Description: 简单Http客户端请求类
+            Author: 美丽的地球
+            Email: sanxia330@qq.com
+            QQ: 1851690435
+            </summary>
+        </member>
+        <member name="M:GeRenXing.Utils.HttpWebClient.Get(System.String)">
+            <summary>
+            Get请求
+            </summary>
+            <param name="requestUrl">请求url</param>
+            <param name="responseText">响应</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeRenXing.Utils.HttpWebClient.Post(System.String)">
+            <summary>
+            Post请求
+            </summary>
+            <param name="requestUrl">请求url</param>
+            <param name="responseText">响应</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeRenXing.Utils.HttpWebClient.SetField(System.String,System.String,System.Boolean)">
+            <summary>
+            设置表单数据字段
+            </summary>
+            <param name="fieldName">字段名</param>
+            <param name="fieldValue">字段值</param>
+            <param name="isMultipart">是否多字段类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeRenXing.Utils.HttpWebClient.SetField(System.String,System.Byte[],System.String,System.String)">
+            <summary>
+            设置表单文件数据
+            </summary>
+            <param name="fieldName">字段名</param>
+            <param name="filename">字段值</param>
+            <param name="contentType">内容内型</param>
+            <param name="fileBytes">文件字节流</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeRenXing.Utils.HttpWebClient.GetFields">
+            <summary>
+            Get请求数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GeRenXing.Utils.HttpWebClient.PostFields">
+            <summary>
+            Post请求数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GeRenXing.Utils.HttpWebClient.PostMultipartFields">
+            <summary>
+            Post请求数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GeRenXing.Utils.HttpWebClient.ResetStatus">
+            <summary>
+            重置状态
+            </summary>
+        </member>
+        <member name="T:GeRenXing.OpenPlatform.IOAuthClient">
+            <summary>
+            Description: IOAuth接口
+            Author: 美丽的地球
+            Email: sanxia330@qq.com
+            QQ: 1851690435
+            </summary>
+        </member>
+        <member name="T:GeRenXing.OpenPlatform.IUserInterface">
+            <summary>
+            OAuth基础用户接口
+            Author: 美丽的地球
+            Email: sanxia330@qq.com
+            QQ: 1851690435
+            </summary>
+        </member>
+        <member name="T:GeRenXing.OpenPlatform.OAuthClient.OAuthClient">
+            <summary>
+            OAuthClient抽象类
+            Author: 美丽的地球
+            Email: sanxia330@qq.com
+            QQ: 1851690435
+            </summary>
+        </member>
+        <member name="M:GeRenXing.OpenPlatform.OAuthClient.OAuthClient.RequestUrlExecuting(System.String)">
+            <summary>
+            请求Url预处理
+            </summary>
+            <param name="apiUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GeRenXing.OpenPlatform.OAuthClient.OAuthClient.Request(System.String,GeRenXing.OpenPlatform.RequestMethod,GeRenXing.OpenPlatform.RequestOption[])">
+            <summary>
+            发送Http请求
+            </summary>
+            <param name="url">请求Url</param>
+            <param name="method">请求类型</param>
+            <param name="parameters">参数集合</param>
+            <returns></returns>
+        </member>
+        <member name="T:GeRenXing.OpenPlatform.OAuthClient.SinaWeiBoClient">
+            <summary>
+            新浪微博开放平台OAuth客户端接口实现
+            Author: 美丽的地球
+            Email: sanxia330@qq.com
+            QQ: 1851690435
+            </summary>
+        </member>
+        <member name="M:GeRenXing.OpenPlatform.OAuthClient.SinaWeiBoClient.ParseAccessToken(System.String)">
+            <summary>
+            解析访问令牌
+            </summary>
+            <param name="responseResult"></param>
+        </member>
+        <member name="M:GeRenXing.OpenPlatform.OAuthClient.SinaWeiBoClient.RequestGetExecuting(GeRenXing.OpenPlatform.RequestOption[])">
+            <summary>
+            Http请求Url数据处理
+            </summary>
+            <param name="url"></param>
+            <param name="method"></param>
+            <param name="isMultipart"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GeRenXing.OpenPlatform.OAuthClient.SinaWeiBoClient.RequestHeaderExecuting(GeRenXing.Utils.HttpWebClient)">
+            <summary>
+            Http请求头部处理
+            </summary>
+            <param name="httpRequest"></param>
+        </member>
+        <member name="T:GeRenXing.OpenPlatform.OAuthClient.SinaWeiBoUserImpl">
+            <summary>
+            新浪微博开放平台OAuth客户端用户信息接口实现
+            Author: 美丽的地球
+            Email: sanxia330@qq.com
+            QQ: 1851690435
+            </summary>
+        </member>
+        <member name="M:GeRenXing.OpenPlatform.OAuthClient.SinaWeiBoUserImpl.GetUserInfo">
+             <summary>
+             获取第三方OAuth平台用户信息
+             response result:
+             {
+                "id": 1404376560,
+                "screen_name": "zaku",
+                "name": "zaku",
+                "province": "11",
+                "city": "5",
+                "location": "北京 朝阳区",
+                "description": "人生五十年，乃如梦如幻；有生斯有死，壮士复何憾。",
+                "url": "http://blog.sina.com.cn/zaku",
+                "profile_image_url": "http://tp1.sinaimg.cn/1404376560/50/0/1",
+                "domain": "zaku",
+                "gender": "m",
+                "followers_count": 1204,
+                "friends_count": 447,
+                "statuses_count": 2908,
+                "favourites_count": 0,
+                "created_at": "Fri Aug 28 00:00:00 +0800 2009",
+                "following": false,
+                "allow_all_act_msg": false,
+                "geo_enabled": true,
+                "verified": false,
+                "status": {
+                    "created_at": "Tue May 24 18:04:53 +0800 2011",
+                    "id": 11142488790,
+                    "text": "我的相机到了。",
+                    "source": "<a href="http://weibo.com" rel="nofollow">新浪微博</a>",
+                   "favorited": false,
+                    "truncated": false,
+                    "in_reply_to_status_id": "",
+                    "in_reply_to_user_id": "",
+                    "in_reply_to_screen_name": "",
+                    "geo": null,
+                    "mid": "5610221544300749636",
+                    "annotations": [],
+                    "reposts_count": 5,
+                    "comments_count": 8
+                },
+                "allow_all_comment": true,
+                "avatar_large": "http://tp1.sinaimg.cn/1404376560/180/0/1",
+                "verified_reason": "",
+                "follow_me": false,
+                "online_status": 0,
+                "bi_followers_count": 215
+            }
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="T:GeRenXing.OpenPlatform.OAuthClient.TaoBaoClient">
+            <summary>
+            淘宝开放平台OAuth客户端接口实现
+            Author: 美丽的地球
+            Email: sanxia330@qq.com
+            QQ: 1851690435
+            </summary>
+        </member>
+        <member name="M:GeRenXing.OpenPlatform.OAuthClient.TaoBaoClient.ParseAccessToken(System.String)">
+            <summary>
+            解析访问令牌
+            response result:
+            {
+              "w2_expires_in": 1800,
+              "taobao_user_id": "1826171524",
+              "taobao_user_nick": "sanxia_330",
+              "w1_expires_in": 86400,
+              "re_expires_in": 86400,
+              "r2_expires_in": 86400,
+              "expires_in": 86400,
+              "token_type": "Bearer",
+              "refresh_token": "6200522427d9e19e6029540fcc151dfh16c46b3de3a463b1826171524",
+              "access_token": "6201522a5dca536dfff594c7fa04bdfh3c4616011106a061826171524",
+              "r1_expires_in": 86400
+            }
+            </summary>
+            <param name="responseResult"></param>
+        </member>
+        <member name="M:GeRenXing.OpenPlatform.OAuthClient.TaoBaoClient.RequestGetExecuting(GeRenXing.OpenPlatform.RequestOption[])">
+            <summary>
+            Http请求Url数据处理
+            </summary>
+            <param name="url"></param>
+            <param name="method"></param>
+            <param name="isMultipart"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GeRenXing.OpenPlatform.OAuthClient.TaoBaoClient.RequestHeaderExecuting(GeRenXing.Utils.HttpWebClient)">
+            <summary>
+            Http请求头部处理
+            </summary>
+            <param name="httpRequest"></param>
+        </member>
+        <member name="T:GeRenXing.OpenPlatform.OAuthClient.TaoBaoUserImpl">
+            <summary>
+            淘宝开放平台OAuth客户端用户信息接口实现
+            Author: 美丽的地球
+            Email: sanxia330@qq.com
+            QQ: 1851690435
+            </summary>
+        </member>
+        <member name="M:GeRenXing.OpenPlatform.OAuthClient.TaoBaoUserImpl.GetUserInfo">
+            <summary>
+            获取第三方OAuth平台用户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GeRenXing.OpenPlatform.OAuthClient.TencentQQClient">
+            <summary>
+            腾讯QQ开放平台OAuth客户端接口实现
+            Author: 美丽的地球
+            Email: sanxia330@qq.com
+            QQ: 1851690435
+            </summary>
+        </member>
+        <member name="M:GeRenXing.OpenPlatform.OAuthClient.TencentQQClient.#ctor(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="clientId"></param>
+            <param name="clientSecret"></param>
+            <param name="callbackUrl"></param>      
+        </member>
+        <!-- 对于成员“M:GeRenXing.OpenPlatform.OAuthClient.TencentQQClient.ParseAccessToken(System.String)”忽略有格式错误的 XML 注释 -->
+        <member name="M:GeRenXing.OpenPlatform.OAuthClient.TencentQQClient.RequestGetExecuting(GeRenXing.OpenPlatform.RequestOption[])">
+            <summary>
+            Http请求Url数据处理
+            </summary>
+            <param name="url"></param>
+            <param name="method"></param>
+            <param name="isMultipart"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GeRenXing.OpenPlatform.OAuthClient.TencentQQClient.GetResponseJsonData(System.String)">
+            <summary>
+            提取腾讯QQ第三方OAuth平台返回的json数据
+            </summary>
+            <param name="responseText"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GeRenXing.OpenPlatform.OAuthClient.TencentQQUserImpl">
+            <summary>
+            腾讯QQ开放平台OAuth客户端用户信息接口实现
+            Author: 美丽的地球
+            Email: sanxia330@qq.com
+            QQ: 1851690435
+            </summary>
+        </member>
+        <member name="M:GeRenXing.OpenPlatform.OAuthClient.TencentQQUserImpl.GetUserInfo">
+             <summary>
+             获取第三方OAuth平台用户信息
+             response result:
+            {
+            "ret":0,
+            "msg":"",
+            "nickname":"Peter",
+            "figureurl":"http://qzapp.qlogo.cn/qzapp/111111/942FEA70050EEAFBD4DCE2C1FC775E56/30",
+            "figureurl_1":"http://qzapp.qlogo.cn/qzapp/111111/942FEA70050EEAFBD4DCE2C1FC775E56/50",
+            "figureurl_2":"http://qzapp.qlogo.cn/qzapp/111111/942FEA70050EEAFBD4DCE2C1FC775E56/100",
+            "figureurl_qq_1":"http://q.qlogo.cn/qqapp/100312990/DE1931D5330620DBD07FB4A5422917B6/40",
+            "figureurl_qq_2":"http://q.qlogo.cn/qqapp/100312990/DE1931D5330620DBD07FB4A5422917B6/100",
+            "gender":"男",
+            "is_yellow_vip":"1",
+            "vip":"1",
+            "yellow_vip_level":"7",
+            "level":"7",
+            "is_yellow_year_vip":"1"
+            }
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="T:GeRenXing.Utils.DynamicHelper">
+            <summary>
+            Description: 将JSON字符串转换为动态对象
+            Author: 美丽的地球
+            Email: sanxia330@qq.com
+            QQ: 1851690435
+            </summary>
+        </member>
+        <member name="T:GeRenXing.Utils.DynamicJsonConverter">
+            <summary>
+            动态Json对象转换
+            </summary>
+        </member>
+        <member name="T:GeRenXing.Utils.DynamicJsonObject">
+            <summary>
+            动态Json对象
+            </summary>
+        </member>
+    </members>
+</doc>

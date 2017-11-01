@@ -1,0 +1,47 @@
+﻿
+.div_release_content {
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.but_Release {
+    width: 100px;
+    height: 30px;
+}
+
+.alertMess {
+    color: red;
+    font-size: 11px;
+}
+
+.div_typelist, .div_taglist, .div_options {
+    margin-top: 4px;
+    margin-bottom: 8px;
+    padding: 4px;
+    border: 1px dashed #808080;
+    font-size: 11px;
+}
+
+.div_detoptions {
+    margin-top: 8px;
+}
+
+.chk_a {
+    text-decoration: none;
+    color: #854a4a;
+}
+
+.title_font {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.txt_title {
+    padding: 3px;
+}
+
+.body_head a.body_head_article {
+    color: #ff0000;
+    font-weight: 600;
+}

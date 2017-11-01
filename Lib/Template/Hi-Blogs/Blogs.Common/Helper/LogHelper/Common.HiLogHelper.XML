@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Common.HiLogHelper</name>
+    </assembly>
+    <members>
+        <member name="T:Common.HiLogHelper.FileHelper">
+            <summary>
+            文件操作辅助类
+            </summary>
+        </member>
+        <member name="F:Common.HiLogHelper.FileHelper.defaultpath">
+            <summary>
+            默认路径（网站根目录） 最后已经带了"\"
+            </summary>
+        </member>
+        <member name="F:Common.HiLogHelper.FileHelper.encoding">
+            <summary>
+            编码格式
+            </summary>
+        </member>
+        <member name="M:Common.HiLogHelper.FileHelper.FileIsTake(System.String)">
+            <summary>
+            文件是否被占用
+            </summary>
+            <param name="FileFullName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.HiLogHelper.FileHelper.isFile(System.String)">
+            <summary>
+            判断是否是文件(文件是否存在)
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.HiLogHelper.FileHelper.CreatePath(System.String)">
+            <summary>
+            创建路径 如果存在 return false
+            </summary>
+            <param name="paht"></param>
+        </member>
+        <member name="M:Common.HiLogHelper.FileHelper.SaveFile(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            记录数据  覆盖或追加
+            </summary>
+            <param name="FilePath">文件路径</param>
+            <param name="FileName">文件名称</param>
+            <param name="str"></param>
+            <param name="Cover">如果文件存 true:覆盖 false：追加</param>
+        </member>
+        <member name="M:Common.HiLogHelper.FileHelper.FileSystemInfo(System.String,System.String,System.String)">
+            <summary>
+            获取 目录下的  子目录或文件 【state 1：目录 2：文件 3：目录和文件】
+            </summary>
+            <param name="path"></param>
+            <param name="state"> 1：目录 2：文件 3：目录和文件</param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.HiLogHelper.FileHelper.GetFile(System.String,System.String)">
+            <summary>
+            读取文件里面的内容
+            </summary>
+            <param name="FilePath"></param>
+            <param name="FileName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Common.HiLogHelper.LogHelper">
+            <summary>
+            日志操作辅助类
+            zhaopeiym@163.com
+            创建20150104 修改20150104
+            </summary>
+        </member>
+        <member name="F:Common.HiLogHelper.LogHelper.logQueue">
+            <summary>
+            消息队列
+            </summary>
+        </member>
+        <member name="F:Common.HiLogHelper.LogHelper.myLock">
+            <summary>
+            标志锁
+            </summary>
+        </member>
+        <member name="M:Common.HiLogHelper.LogHelper.logWrite(Common.HiLogHelper.LogModel)">
+            <summary>
+            写入日志文件（异步单线程 记录日志）
+            </summary>
+            <param name="logmede"></param>
+        </member>
+        <member name="F:Common.HiLogHelper.LogHelper.encoding">
+            <summary>
+            文件编码格式
+            </summary>
+        </member>
+        <member name="F:Common.HiLogHelper.LogHelper.isStart">
+            <summary>
+            是否开始自动记录日志
+            </summary>
+        </member>
+        <member name="F:Common.HiLogHelper.LogHelper.time">
+            <summary>
+            用来 标识 最好一次 检测是否 需要 清理 日志文件 时间
+            </summary>
+        </member>
+        <member name="F:Common.HiLogHelper.LogHelper.logFileNum">
+            <summary>
+            每个日志文件夹 对应的文件下标
+            </summary>
+        </member>
+        <member name="M:Common.HiLogHelper.LogHelper.logStartWrite">
+            <summary>
+            开始把队列消息写入文件
+            </summary>
+        </member>
+        <member name="P:Common.HiLogHelper.LogHelper.LogQueue">
+            <summary>
+            消息队列 对外只读
+            </summary>
+        </member>
+        <member name="T:Common.HiLogHelper.LogModel">
+            <summary>
+            日志模型
+            </summary>
+        </member>
+        <member name="F:Common.HiLogHelper.LogModel._logFilePath">
+            <summary>
+            日志要存的路径 默认路径：网站根目录 + Log 文件夹
+            在程序第一次启动是设置
+            </summary>       
+        </member>
+        <member name="F:Common.HiLogHelper.LogModel.TestingInterval">
+            <summary>
+            检测间隔时间（分钟）
+            </summary>
+        </member>
+        <member name="F:Common.HiLogHelper.LogModel.DelInterval">
+            <summary>
+            删除 N分钟（最后修改时间）之前的的 日志
+            </summary>
+        </member>
+        <member name="F:Common.HiLogHelper.LogModel.SectionlogFileSize">
+            <summary>
+            部分日志文件大小(Byte)
+            </summary>
+        </member>
+        <member name="F:Common.HiLogHelper.LogModel.fileSize">
+            <summary>
+            变动文件大小(Byte)
+            </summary>
+        </member>
+        <member name="P:Common.HiLogHelper.LogModel.logFileName">
+            <summary>
+            日志文件名字
+            </summary>
+        </member>
+        <member name="P:Common.HiLogHelper.LogModel.logMessg">
+            <summary>
+            日志内容
+            </summary>
+        </member>
+        <member name="T:Common.HiLogHelper.LogSave">
+            <summary>
+            异步单线程
+            </summary>
+        </member>
+        <member name="M:Common.HiLogHelper.LogSave.GetExceptionInfo(System.Exception)">
+            <summary>
+            获得Exception 的详细信息
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.HiLogHelper.LogSave.SysErrLogSave(System.Exception,System.String)">
+            <summary>
+            系统 自动 捕捉异常
+            保存异常详细信息 
+            包括： 浏览器  浏览器版本 操作系统 页面  Exception
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:Common.HiLogHelper.LogSave.ErrLogSave(System.String,System.Exception,System.String)">
+            <summary>
+            异常日志记录
+            </summary>
+            <param name="strmes"></param>
+            <param name="ex"></param>
+        </member>
+        <member name="M:Common.HiLogHelper.LogSave.WarnLogSave(System.String,System.String)">
+            <summary>
+            警告日志记录
+            </summary>
+            <param name="str"></param>
+        </member>
+        <member name="M:Common.HiLogHelper.LogSave.TrackLogSave(System.String,System.String)">
+            <summary>
+            追踪日志记录
+            </summary>
+            <param name="str"></param>
+        </member>
+        <member name="M:Common.HiLogHelper.LogSave.TrackLogSave(System.String)">
+            <summary>
+            追踪日志记录
+            </summary>
+            <param name="str"></param>
+        </member>
+    </members>
+</doc>

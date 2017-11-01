@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "帮助引导页面";
+    Layout = null;
+}
+@Scripts.Render("~/bundles/jquery")
+<style type="text/css">
+    hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    div.divEmail {
+        display: none;
+    }
+    .messg {
+    color:red;
+    }
+</style>
+
+<h2 style="color:red">还没设置连接数据库？</h2>
+
+
+<div class="divDataSource">
+    <hr />
+    数据库服务器：<input type="text" class="dataSource" />
+    数据库名称：<input type="text" class="initialCatalog" />
+    登录用户名:<input type="text" class="userID" />
+    登录密码：<input type="text" class="password" />
+    <input type="button" value="保存并测试" onclick="testConnect()" />
+</div>
+<div class="divEmail">
+    <hr />
+    SMTP邮件服务器:<input type="text" class="mailHost" />
+    发件人邮箱:<input type="text" class="mailFrom" />
+    发件人密码:<input type="text" class="mailPwd" />
+    <input type="button" value="保存并测试" onclick="testEmail()" />
+    <input type="button" value="忽略，直接使用博客系统" title="如果忽略则无法正常使用注册功能" onclick="window.location.href='/'" />
+</div>
+<hr />
+<div>
+    <span class="messg"></span>
+</div>
+<script type="text/javascript">
+
+    function testConnect() {
+        $(".messg").text("正在测试数据库连接，请稍候...");
+        var objJson = {
+            dataSource: $(".dataSource").val(),
+            initialCatalog: $(".initialCatalog").val(),
+            userID: $(".userID").val(),
+            password: $(".password").val()
+        };
+        $.ajax({
+            url: "/AdminHelper/SaveConnect",
+            data: objJson,
+            type: "post",
+            dataType: "text",
+            success: function (obj) {
+                $.ajax({
+                    url: "/AdminHelper/TestConnect",
+                    data: objJson,
+                    type: "post",
+                    dataType: "text",
+                    success: function (obj) {
+                        $(".messg").text("");
+                        if (obj == "ok") {
+                            if (confirm("数据库配置成功，是否继续配置邮箱")) {
+                                $("div.divEmail").show();
+                                $("div.divDataSource").hide();
+                            }
+                            else {
+                                alert("请手动配置邮箱后，才能使用注册功能~");
+                                window.location.href = '/';
+                            }
+                        }
+                        else {
+                            alert("数据库配置失败，请检查输入值是否正确");
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    function testEmail() {
+        $(".messg").text("正在测试邮箱配置，请稍候...");
+        var objJson = {
+            mailHost: $(".mailHost").val(),
+            mailFrom: $(".mailFrom").val(),
+            mailPwd: $(".mailPwd").val()
+        }
+
+        $.ajax({
+            url: "/AdminHelper/SaveEmail",
+            data: objJson,
+            type: "post",
+            dataType: "text",
+            success: function () {
+                $.ajax({
+                    url: "/AdminHelper/TestEmail",
+                    data: objJson,
+                    type: "post",
+                    dataType: "text",
+                    success: function (obj) {
+                        $(".messg").text("");
+                        if (obj == "True") {
+                            alert("邮件已发送，请去邮箱查收邮件");
+                            window.location.href = '/';
+                        }
+
+                        else {
+                            alert("请重试，检查邮件配置是否正确");
+                        }
+                    }
+                });
+            }
+        });
+    }
+</script>

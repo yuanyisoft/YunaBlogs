@@ -1,0 +1,247 @@
+﻿@{
+    ViewBag.Title = "话图Demo";
+}
+@*<script src="~/Scripts/jquery-1.8.2.js"></script>*@
+
+
+
+<style type="text/css">
+    .div_pack {
+        float: left;
+        margin-left: 20px;
+    }
+
+    .blog_body .blog_body_8 {
+        width: 100%;
+    }
+
+    .clearfix:after {
+        content: ' ';
+        display: table;
+        clear: both;
+    }
+</style>
+<script type="text/javascript">
+    var msgData = {};
+    var msgKey = [];
+    var keyIndex = 0;
+    function imgLoad(obj, px) {
+        var str_html = $(".mb").html();
+        var par = $(obj).parent();
+        par.prepend(str_html);
+        par.find(".div1").css("width", $(obj).css("width"));
+        if (!px)
+            par.find(".div1").css("height", 150);
+        else if ("true" == px)
+            par.find(".div1").css("height", $(obj).css("height"));
+        else
+            par.find(".div1").css("height", px);
+        var strs = $(obj).attr("src").split('/');
+        var imgName = strs[strs.length - 1];
+        imgName = isc(imgName);
+        $(obj).attr("name", imgName);
+        msgKey[msgKey.length] = imgName;
+        msgData[imgName] = ["test1:弹一下吧1", "test2:弹一下吧2", "test3:弹一下吧3", ];
+        setInterval(function () {
+            par.find(".div11").each(function () {
+                mesgCycle(this, msgData[imgName]);
+            });
+        }, "10");
+    }
+
+    function isc(key) {
+        if (msgKey.indexOf(key) >= 0) {
+            key += keyIndex++;
+            isc(key);
+        }
+        return key;
+    }
+    //
+    function mesgCycle(element, mesg) {
+        var elementRight = parseInt($(element).css("left"));
+        var elementWidth = parseInt($(element).css("width"));
+        var imgWidth = parseInt($(element).parents(".div_pack").find("img").css("width"));
+        $(element).css("left", elementRight - 1);
+        if ((elementRight + elementWidth) == 0) {
+            mesg[mesg.length] = mesg[0];
+            $(element).text(mesg.shift());
+            $(element).css("left", imgWidth - parseInt($(element).css("width")));
+            $(element).css("color", getColor());
+        }
+    }
+
+    var color = ["#ED71FF", "#7DE3E8", "#F4A62A", "red", "#D14233", "#CE1CFF", "#017EC1", "red", "#0094ff", "#E98B39", "#003344", "red"];
+    function getColor() {
+        color[color.length] = color[0];
+        return color.shift();
+    }
+
+    function but(obj) {
+        var inp = $(obj).parents(".but_div").find(".inp");
+        if (!inp.val())
+            alert("请输入内容");
+        else if (inp.val().length >= 50)
+            alert("内容过多");
+        else {
+            var imgName = $(obj).parents(".div_pack").find("img").attr("name");
+            msgData[imgName].unshift("joy(我)：" + inp.val());
+            saveSer(imgName, inp.val());
+        }
+        inp.val("")
+    }
+
+
+    function gaoLike(obj) {
+        //var num = parseInt($(".gaoLike").html());
+        //num++;
+        //$(".gaoLike").html(num);
+
+        var imgKey = $(".gaoImg").attr("name");
+        clickLike("高圆圆", imgKey);
+    }
+
+    function fanLike() {
+        //var num = parseInt($(".fanLike").html());
+        //num++;
+        //$(".fanLike").html(num);
+
+        var imgKey = $(".fanImg").attr("name");
+        clickLike("范冰冰", imgKey);
+    }
+
+    function clickLike(name, imgkey, isShowMsg) {
+        $.ajax({
+            url: "/demo/SetLike",
+            data: { "name": name, "imgKey": imgkey },
+            success: function (objData) {
+                if (!isShowMsg)
+                    if (objData.isLike == false)
+                        $(".divMasg").html(objData.userName + " 投票成功~");
+                    else
+                        $(".divMasg").html(objData.userName + " 请不要重复投票");
+                if (name == "高圆圆") {
+                    $(".gaoLike").html(objData.num);
+                }
+                else
+                    $(".fanLike").html(objData.num);
+            }
+        });
+    }
+
+    //保存数据到服务端
+    function saveSer(key, value) {
+        $.ajax({
+            url: "/Demo/saveSer",
+            data: { "key": key, "value": value },
+            dataType: "json",
+            success: function (odjData) {
+                if (odjData == "err") {
+                    $(".divMasg").html("您还未登录，只能自娱自乐哦，不能和大家一起图话了...");
+                    if (confirm("您还没登录，是否马上登录")) {
+                        location.href = "/UserManage/Login?href=/Demo/TuHua";
+                    }
+                    return;
+                }
+                msgData[key] = odjData;
+            }
+        });
+    }
+    $(function () {
+        $(".addImgs img").each(function () {
+            var isLoadOk = true;
+            var img = this;
+            $(this).load(function () {
+                isLoadOk = false;
+                loadData(img);
+            });
+            if (isLoadOk) {
+                loadData(img);
+            }
+        });
+
+        getLike("范冰冰");
+        getLike("高圆圆");
+    });
+
+    function getLike(name) {
+        $.ajax({
+            url: "/Demo/GetLike",
+            data:{"name":name},
+            dataType: "json",
+            success: function (odjData) {
+                debugger;
+                if(name=="高圆圆")
+                    $(".gaoLike").html(odjData);
+                else
+                    $(".fanLike").html(odjData);
+            }
+        }); 
+    }
+
+    function loadData(img) {
+        $.ajax({
+            url: "/Demo/GetSer",
+            dataType: "json",
+            success: function (odjData) {
+                debugger;
+                if (!odjData) {
+                    return;
+                }
+                var imgname = $(img).attr("name");
+                var temp = odjData[imgname];
+                if (temp && temp.length) {
+                    msgData[imgname] = temp;
+                }
+            }
+        });
+    }
+</script>
+<div style="text-align:center;font-size:32px;color:#0094ff">
+    高女神VS范女神谁更美？
+</div>
+<div class="clearfix">
+    <div style="float: left; width: 50%">
+        <div style="display:table;width:100%;text-align:center">
+            <a href="javascript:;" onclick="gaoLike(this)">
+                <img src="~/Imgs/tuhua/like.png" style="max-height:50px" />
+            </a>
+            <span class="gaoLike">0</span>
+        </div>
+    </div>
+    <div style="float: right; width: 50%">
+        <div style="display:table;width:100%;text-align:center">
+            <a href="javascript:;" onclick="fanLike(this)">
+                <img src="~/Imgs/tuhua/like.png" style="max-height: 50px; " />
+            </a>
+            <span class="fanLike">0</span>
+        </div>
+    </div>
+</div>
+<div class="mb" style="display:none">
+    <div class="div1" style="background-color: rgba(0,0,0,0.3); position: absolute;overflow:hidden;">
+        <div class="div11" style="top: 11px; left: 50px; font-size: 20px; color: rgba(0,0,0,0.3); position: absolute; overflow: hidden;">
+            test:sfsdf司机哦岁的粉红
+        </div>
+        <div class="div11" style="top: 28px; left: 90px; font-size: 20px; color: #ff6a00; position: absolute; overflow: hidden; "></div>
+        <div class="div11" style="top: 51px; left: 400px; font-size: 20px; color:#4cff00; position: absolute; overflow: hidden; ">test3:test3</div>
+        <div class="div11" style="top: 75px; left: 300px; font-size: 20px; color:#4cff00; position: absolute; overflow: hidden; ">test3:test3</div>
+        <div class="div11" style="top: 90px; left: 100px; font-size: 20px; color:#4cff00; position: absolute; overflow: hidden; ">test3:test3</div>
+        <div style="position:absolute;bottom:0px;width:100%">
+            <div class="but_div" style="display: table; margin: 0 auto">
+                <input type="text" class="inp" /><input type="button" onclick="but(this);" value="弹一个" />
+            </div>
+        </div>
+    </div>
+</div>
+@*border: 1px dashed #0094ff;*@
+
+<div class="divMasg" style="color: red; margin: 5px;padding: 5px; "></div>
+<div class="addImgs clearfix" style="overflow:hidden;">
+    <div class="div_pack">
+        <img class="gaoImg" style="max-width: 700px; max-height: 800px" src="~/Imgs/tuhua/高圆圆.jpg" onload="imgLoad(this);">
+    </div>
+    <div class="div_pack">
+        <img class="fanImg" style="max-width: 700px; max-height: 800px; " src="~/Imgs/tuhua/范冰冰.jpg" onload="imgLoad(this,300);">
+    </div>
+</div>
+

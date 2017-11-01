@@ -1,0 +1,178 @@
+﻿
+@{
+    ViewBag.Title = "技术分享";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--CSS Style-->
+<style type="text/css">
+    #all .media, #refer .media, #doc .media, #soft .media, #example .media, #pulguns .media, #models .media, #other .media {
+        margin: 10px 10px;
+        border: 1px solid #ddd;
+        padding: 5px 5px;
+        box-shadow: grey 1px 1px 1px;
+    }
+
+        #all .media hr {
+            margin: 2px 0;
+        }
+
+        #all .media .media-body p {
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+
+        #all .media .media-body h4:hover {
+            color: red;
+            background-color: #eee;
+            cursor: pointer;
+        }
+
+        #all .media .media-item img, #all .media .media-item span {
+            float: left;
+            margin: 3px 5px;
+        }
+
+        #all .media .media-item img {
+            width: 20px;
+            height: 20px;
+        }
+
+        #all .media .media-item p {
+            float: right;
+            margin-bottom: 0;
+        }
+</style>
+
+<div class="content-wrap">
+    <div class="content">
+        <div class="content-block about-content">
+            <!--  TODO 标签 -->
+            <div class="source-tabs ">
+                <h2 class="title"><strong>技术分享</strong></h2>
+                <ul class="list-unstyled  nav nav-tabs">
+                    <li class="active"><a href="#all" data-toggle="tab" aria-expanded="true">全部</a></li>
+                    <li class=""><a href="#refer" data-toggle="tab" aria-expanded="false">教程</a></li>
+                    <li class=""><a href="#doc" data-toggle="tab" aria-expanded="false">文档</a></li>
+                    <li class=""><a href="#soft" data-toggle="tab" aria-expanded="false">软件</a></li>
+                    <li class=""><a href="#example" data-toggle="tab" aria-expanded="false">案例</a></li>
+                    <li class=""><a href="#pulguns" data-toggle="tab" aria-expanded="false">插件</a></li>
+                    <li class=""><a href="#models" data-toggle="tab" aria-expanded="false">模板</a></li>
+                    <li class=""><a href="#other" data-toggle="tab" aria-expanded="false">其他</a></li>
+                    <div style="clear:both"></div>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <!-- TODO  全部内容: -->
+                <div id="all" class="row tab-pane fade active in">
+                    <a href="http://www.aseoe.com/show-41-582-1.html" target="_blank"><img class="img-responsive" src="~/images/big.jpg" alt="" style="width:100%;height: 300px;background-color: #aaa;margin:10px 10px;"></a>
+                    <!-- 采用多媒体对象方法发表资源链接内容 -->
+                    <div class="media">
+                        <span class="pull-left"><img class="media-object" src="" alt=""></span><div class="media-body">
+                            <h4 class="media-heading">hTML5+CSS视频教程</h4><p><span>教程</span></p><p>
+                                最近搜罗的有关hTML5+CSS视频教程，保存在我的百度网盘上。有需要的可以去下载。
+                                提取密码：k1jk
+                            </p><p><label>链接：</label><a href="http://pan.baidu.com/s/1jHRCZae">http://pan.baidu.com/s/1jHRCZae</a></p>
+                        </div>
+                    </div><div class="media">
+                        <span class="pull-left"><img class="media-object" src="" alt=""></span><div class="media-body">
+                            <h4 class="media-heading">Node.js视频教程</h4><p><span>教程</span></p><p>
+                                Node.js视频教程，目前正在看，适合入门。
+                                提取密码：8d0g
+                            </p><p><label>链接：</label><a href="http://pan.baidu.com/s/1hsfokiK ">http://pan.baidu.com/s/1hsfokiK </a></p>
+                        </div>
+                    </div><div class="media">
+                        <span class="pull-left"><img class="media-object" src="" alt=""></span><div class="media-body">
+                            <h4 class="media-heading">全套PHP系列视频教程</h4><p><span>教程</span></p><p>
+                                内容很详细，包含微信开发。
+                                提取密码：2nsf
+                            </p><p><label>链接：</label><a href="http://pan.baidu.com/s/1bDGfW6">http://pan.baidu.com/s/1bDGfW6</a></p>
+                        </div>
+                    </div><div class="media">
+                        <span class="pull-left"><img class="media-object" src="" alt=""></span><div class="media-body">
+                            <h4 class="media-heading">PhoneGap + jQuery Mobile精品教程</h4><p><span>教程</span></p><p>
+                                PhoneGap和jQuery Mobile精品教程，结合书籍看效果更好。
+                                提取密码：hsr2
+                            </p><p><label>链接：</label><a href="http://pan.baidu.com/s/1kVxyYb1">http://pan.baidu.com/s/1kVxyYb1</a></p>
+                        </div>
+                    </div><div class="media">
+                        <span class="pull-left"><img class="media-object" src="" alt=""></span><div class="media-body">
+                            <h4 class="media-heading">网页模板【精品】</h4><p><span>教程</span></p><p>
+                                想要创建个人网站的同志，这些网页模板可能会给你一些启发。
+                                提取密码：e6u5
+                            </p><p><label>链接：</label><a href="http://pan.baidu.com/s/1nuWW12D">http://pan.baidu.com/s/1nuWW12D</a></p>
+                        </div>
+                    </div><div class="media">
+                        <span class="pull-left"><img class="media-object" src="" alt=""></span><div class="media-body">
+                            <h4 class="media-heading">Bootstrap从入门到精通</h4><p><span>教程</span></p><p>
+                                Bootstrap构建响应式网页教程，
+                                提取密码：odhg
+                            </p><p><label>链接：</label><a href="http://pan.baidu.com/s/1eRETQLk">http://pan.baidu.com/s/1eRETQLk</a></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- TODO  教程: -->
+                <div id="refer" class="row tab-pane fade">
+                    <div class="media">
+                        <span class="pull-left"><img class="media-object" src="" alt=""></span><div class="media-body">
+                            <h4 class="media-heading">hTML5+CSS视频教程</h4><p><span>教程</span></p><p>
+                                最近搜罗的有关hTML5+CSS视频教程，保存在我的百度网盘上。有需要的可以去下载。
+                                提取密码：k1jk
+                            </p><p><label>链接：</label><a href="http://pan.baidu.com/s/1jHRCZae">http://pan.baidu.com/s/1jHRCZae</a></p>
+                        </div>
+                    </div><div class="media">
+                        <span class="pull-left"><img class="media-object" src="" alt=""></span><div class="media-body">
+                            <h4 class="media-heading">Node.js视频教程</h4><p><span>教程</span></p><p>
+                                Node.js视频教程，目前正在看，适合入门。
+                                提取密码：8d0g
+                            </p><p><label>链接：</label><a href="http://pan.baidu.com/s/1hsfokiK ">http://pan.baidu.com/s/1hsfokiK </a></p>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <span class="pull-left"><img class="media-object" src="" alt=""></span><div class="media-body">
+                            <h4 class="media-heading">全套PHP系列视频教程</h4><p><span>教程</span></p><p>
+                                内容很详细，包含微信开发。
+                                提取密码：2nsf
+                            </p><p><label>链接：</label><a href="http://pan.baidu.com/s/1bDGfW6">http://pan.baidu.com/s/1bDGfW6</a></p>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <span class="pull-left"><img class="media-object" src="" alt=""></span><div class="media-body">
+                            <h4 class="media-heading">PhoneGap + jQuery Mobile精品教程</h4><p><span>教程</span></p><p>
+                                PhoneGap和jQuery Mobile精品教程，结合书籍看效果更好。
+                                提取密码：hsr2
+                            </p><p><label>链接：</label><a href="http://pan.baidu.com/s/1kVxyYb1">http://pan.baidu.com/s/1kVxyYb1</a></p>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <span class="pull-left"><img class="media-object" src="" alt=""></span><div class="media-body">
+                            <h4 class="media-heading">网页模板【精品】</h4><p><span>教程</span></p><p>
+                                想要创建个人网站的同志，这些网页模板可能会给你一些启发。
+                                提取密码：e6u5
+                            </p><p><label>链接：</label><a href="http://pan.baidu.com/s/1nuWW12D">http://pan.baidu.com/s/1nuWW12D</a></p>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <span class="pull-left"><img class="media-object" src="" alt=""></span><div class="media-body">
+                            <h4 class="media-heading">Bootstrap从入门到精通</h4><p><span>教程</span></p><p>
+                                Bootstrap构建响应式网页教程，
+                                提取密码：odhg
+                            </p><p><label>链接：</label><a href="http://pan.baidu.com/s/1eRETQLk">http://pan.baidu.com/s/1eRETQLk</a></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- TODO  文档: -->
+                <div id="doc" class="row tab-pane fade"><div class="media"><div class="media-body"><h4 class="media-heading">没有找到对应类型资源。</h4></div></div></div>
+                <!-- TODO  软件: -->
+                <div id="soft" class="row tab-pane fade"><div class="media"><div class="media-body"><h4 class="media-heading">没有找到对应类型资源。</h4></div></div></div>
+                <!-- TODO  案例: -->
+                <div id="example" class="row tab-pane fade"><div class="media"><div class="media-body"><h4 class="media-heading">没有找到对应类型资源。</h4></div></div></div>
+                <!-- TODO  插件: -->
+                <div id="pulguns" class="row tab-pane fade"><div class="media"><div class="media-body"><h4 class="media-heading">没有找到对应类型资源。</h4></div></div></div>
+                <!-- TODO  模板: -->
+                <div id="models" class="row tab-pane fade"><div class="media"><div class="media-body"><h4 class="media-heading">没有找到对应类型资源。</h4></div></div></div>
+                <!-- TODO  其他: -->
+                <div id="other" class="row tab-pane fade"><div class="media"><div class="media-body"><h4 class="media-heading">没有找到对应类型资源。</h4></div></div></div>
+            </div>
+        </div>
+    </div>
+</div>
