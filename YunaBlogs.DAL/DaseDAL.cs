@@ -9,5 +9,8 @@ namespace YunaBlogs.DAL
 {
    public class DaseDAL<T> where T:EntityBase
     {
+        public void Insert() {
+
+        }
     }
 }
