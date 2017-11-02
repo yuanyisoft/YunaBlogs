@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YunaBlogs.Model.Entities
+namespace YunaBlogs.Model.Entities  
 {
     /// <summary>
     /// 文章信息

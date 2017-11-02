@@ -3,7 +3,7 @@ namespace YunaBlogs.Model.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class YuanBlogs : DbMigration
+    public partial class YunaBlogs : DbMigration
     {
         public override void Up()
         {
@@ -20,7 +20,7 @@ namespace YunaBlogs.Model.Migrations
                         Contents = c.String(),
                         ArticlePic = c.String(),
                         ArticleTypeID = c.Int(nullable: false),
-                        TagID = c.Int(nullable: false),
+                        ArticleTagID = c.Int(nullable: false),
                         CommentID = c.Int(nullable: false),
                         ReadInfoID = c.Int(nullable: false),
                         UserInfoID = c.Int(nullable: false),
@@ -29,19 +29,18 @@ namespace YunaBlogs.Model.Migrations
                         Sort = c.Int(nullable: false),
                         IsDelete = c.Boolean(nullable: false),
                         IsValid = c.Boolean(nullable: false),
-                        ArticleTag_ID = c.Int(),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.ArticleTag", t => t.ArticleTag_ID)
+                .ForeignKey("dbo.ArticleTag", t => t.ArticleTagID, cascadeDelete: true)
                 .ForeignKey("dbo.ArticleType", t => t.ArticleTypeID, cascadeDelete: true)
                 .ForeignKey("dbo.Comment", t => t.CommentID, cascadeDelete: true)
                 .ForeignKey("dbo.ReadInfo", t => t.ReadInfoID, cascadeDelete: true)
                 .ForeignKey("dbo.UserInfo", t => t.UserInfoID, cascadeDelete: true)
                 .Index(t => t.ArticleTypeID)
+                .Index(t => t.ArticleTagID)
                 .Index(t => t.CommentID)
                 .Index(t => t.ReadInfoID)
-                .Index(t => t.UserInfoID)
-                .Index(t => t.ArticleTag_ID);
+                .Index(t => t.UserInfoID);
             
             CreateTable(
                 "dbo.ArticleTag",
@@ -133,11 +132,11 @@ namespace YunaBlogs.Model.Migrations
             DropForeignKey("dbo.Article", "ReadInfoID", "dbo.ReadInfo");
             DropForeignKey("dbo.Article", "CommentID", "dbo.Comment");
             DropForeignKey("dbo.Article", "ArticleTypeID", "dbo.ArticleType");
-            DropForeignKey("dbo.Article", "ArticleTag_ID", "dbo.ArticleTag");
-            DropIndex("dbo.Article", new[] { "ArticleTag_ID" });
+            DropForeignKey("dbo.Article", "ArticleTagID", "dbo.ArticleTag");
             DropIndex("dbo.Article", new[] { "UserInfoID" });
             DropIndex("dbo.Article", new[] { "ReadInfoID" });
             DropIndex("dbo.Article", new[] { "CommentID" });
+            DropIndex("dbo.Article", new[] { "ArticleTagID" });
             DropIndex("dbo.Article", new[] { "ArticleTypeID" });
             DropTable("dbo.UserInfo");
             DropTable("dbo.ReadInfo");

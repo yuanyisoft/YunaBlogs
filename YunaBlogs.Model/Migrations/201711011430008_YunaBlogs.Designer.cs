@@ -7,13 +7,13 @@ namespace YunaBlogs.Model.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class YuanBlogs : IMigrationMetadata
+    public sealed partial class YunaBlogs : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(YuanBlogs));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(YunaBlogs));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711010924488_YuanBlogs"; }
+            get { return "201711011430008_YunaBlogs"; }
         }
         
         string IMigrationMetadata.Source

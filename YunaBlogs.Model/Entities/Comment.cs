@@ -50,6 +50,13 @@ namespace YunaBlogs.Model.Entities
         /// </summary>
         [DisplayName("评论人IP"),Display(Description ="评论人IP")]
         public string CommentIP { get; set; }
+        /// <summary>
+        /// 点赞数量
+        /// </summary>
+        [DisplayName("点赞数"),Display(Description ="点赞数")]
+        public int LikeCount { get; set; }
+
+
 
         public virtual ICollection<Article> Article { get; set; }
 

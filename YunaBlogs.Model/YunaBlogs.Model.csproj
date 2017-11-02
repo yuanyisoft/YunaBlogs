@@ -57,13 +57,13 @@
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Entities\ReadInfo.cs" />
     <Compile Include="Entities\UserInfo.cs" />
-    <Compile Include="Migrations\201711010924488_YuanBlogs.cs" />
-    <Compile Include="Migrations\201711010924488_YuanBlogs.Designer.cs">
-      <DependentUpon>201711010924488_YuanBlogs.cs</DependentUpon>
+    <Compile Include="Migrations\201711011430008_YunaBlogs.cs" />
+    <Compile Include="Migrations\201711011430008_YunaBlogs.Designer.cs">
+      <DependentUpon>201711011430008_YunaBlogs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711010944383_InitialCreate.cs" />
-    <Compile Include="Migrations\201711010944383_InitialCreate.Designer.cs">
-      <DependentUpon>201711010944383_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201711011451387_InitialCreate.cs" />
+    <Compile Include="Migrations\201711011451387_InitialCreate.Designer.cs">
+      <DependentUpon>201711011451387_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,11 +74,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711010924488_YuanBlogs.resx">
-      <DependentUpon>201711010924488_YuanBlogs.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711011430008_YunaBlogs.resx">
+      <DependentUpon>201711011430008_YunaBlogs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711010944383_InitialCreate.resx">
-      <DependentUpon>201711010944383_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711011451387_InitialCreate.resx">
+      <DependentUpon>201711011451387_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

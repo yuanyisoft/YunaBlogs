@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using YunaBlogs.Model.Entities;
+using YunaBlogs.Model.Migrations;
 
 namespace YunaBlogs.Model
 {
@@ -9,7 +10,7 @@ namespace YunaBlogs.Model
             :base("YuanBlogsDB")
         {
             //每次重新启动总是初始化数据库到最新版本（连接字符串为“YuanBlogsDB”）        
-           // Database.SetInitializer(new MigrateDatabaseToLatestVersion<YuanBlogsDbContext, Configuration>("YuanBlogsDB"));
+           Database.SetInitializer(new MigrateDatabaseToLatestVersion<YuanBlogsDbContext, Configuration>("YuanBlogsDB"));
         }
 
         public DbSet<UserInfo> UserInfos { get; set; }

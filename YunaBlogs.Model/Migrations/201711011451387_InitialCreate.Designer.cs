@@ -13,7 +13,7 @@ namespace YunaBlogs.Model.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201711010944383_InitialCreate"; }
+            get { return "201711011451387_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

@@ -5,14 +5,14 @@ namespace YunaBlogs.Model.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<YunaBlogs.Model.YuanBlogsDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<YuanBlogsDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(YunaBlogs.Model.YuanBlogsDbContext context)
+        protected override void Seed(YuanBlogsDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
