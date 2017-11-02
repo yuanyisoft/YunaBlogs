@@ -43,5 +43,11 @@
     <Compile Include="DaseDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YunaBlogs.Model\YunaBlogs.Model.csproj">
+      <Project>{797AE59B-2012-4E8A-A15E-9750FB2459A5}</Project>
+      <Name>YunaBlogs.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
