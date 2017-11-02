@@ -32,7 +32,7 @@ namespace YunaBlogs.Controllers
         /// <returns></returns>
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page11.";
+            ViewBag.Message = "Your application description page";
 
             return View();
         }
