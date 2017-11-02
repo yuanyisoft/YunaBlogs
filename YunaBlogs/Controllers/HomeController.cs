@@ -14,6 +14,7 @@ namespace YunaBlogs.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
+            ViewBag.Message = "111111e";
             return View();
         }
     
