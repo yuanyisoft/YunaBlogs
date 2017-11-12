@@ -707,7 +707,7 @@ body, input, button, textarea, select {
 }
  @media (min-width: 767px) {
 .content .comment .comment-title .form-group{
-	width:33%;
+	width:31%;
 }
 .content .comment .comment-title .form-group input{
 	width:80%;

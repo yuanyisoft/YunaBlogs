@@ -17,21 +17,7 @@ namespace YunaBlogs
             name: "Default",
             url: "{controller}/{action}/{id}",
             defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-
             );
-
-
-            //routes.MapRoute(
-            //"test",
-            //"{action}",
-            //new { controller = "Admin", action = "Login" }
-            //);
-
-            //routes.MapRoute(
-            //"Default",
-            //"{controller}/{action}",
-            //new { controller = "Home", action = "Index" }
-            //);
         }
     }
 }
